@@ -1,5 +1,3 @@
-# cat ".env.local.$PROFILE" > .env.back
-# cat .env | xargs printf -- 'export %s\n'
-
+# shellcheck disable=SC2155
 export PYTHONPATH=$(pwd)
 python3 src/main.py
