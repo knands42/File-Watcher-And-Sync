@@ -13,7 +13,7 @@ class SmbClient:
 
     def persist(self, file_path: str) -> None:
         try:
-            with open(file_path, 'r') as f:
+            with open(file_path, 'rb') as f:
                 file_path_to_persist = os.path.join(self.__config.smb_remote_folder_to_persist,
                                                     os.path.basename(file_path))
                 self.__get_connection().storeFile(self.__config.smb_remote_folder_share_to_watch,
@@ -23,7 +23,7 @@ class SmbClient:
         finally:
             self.__close_connection()
 
-    def delete_recursively(self, filename: str):
+    def delete_recursively(self, file_path: str):
         # self.__operations.deleteFiles(self.__shared_folder, "test/*")
         pass
 
