@@ -12,6 +12,7 @@ Clone this project into a directory available in your path.
 ```bash
 git clone git@github.com:caiofernandes00/File-Watcher-And-Sync.git /opt/File-Watcher-And-Sync
 cd /opt/File-Watcher-And-Sync
+python3 -m venv venv
 pip install -r requirements.txt
 chmod +x exec.sh
 export PATH=$PATH:$/opt/File-Watcher-And-Sync
@@ -26,4 +27,13 @@ Once the previous step is completed, you can execute the script.
 
 ```bash
 watch_and_send
+```
+
+### Windows
+
+If you are using Windows, after creating the venv environment, installing the dependencies and generating a .env with the right credentials, you can generate a .exe installer with the following command on cmd or PS.
+
+```bash
+set PYINSTALLER_CONFIG_DIR=.env
+pyinstaller --onefile --paths venv\Lib\site-packages src\main.py
 ```
