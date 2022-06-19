@@ -39,8 +39,7 @@ If you are using Windows, after creating the venv environment, installing the de
 the right credentials, you can generate a .exe installer with the following command on cmd or PS.
 
 ```bash
-set PYINSTALLER_CONFIG_DIR=.
-pyinstaller --onefile --paths venv\Lib\site-packages src\main.py
+generate_exe.bat
 ```
 
 After that execute the `./dist/main.exe` that was created.
