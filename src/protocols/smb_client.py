@@ -17,7 +17,7 @@ class SmbClient:
         finally:
             self.__close_connection()
 
-    def delete_recursively():
+    def delete_recursively(self):
         # self.__operations.deleteFiles(self.__shared_folder, "test/*")
         pass
 
