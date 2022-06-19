@@ -19,21 +19,28 @@ export PATH=$PATH:$/opt/File-Watcher-And-Sync
 ```
 
 *Just for now* it doesn't have *yet* any way to create a config file dynamically, but it will be improved in the future.
-So for the first setup you need to create a config file called `.env` and the content should be followed by the same as the `.env.example` file.
+So for the first setup you need to create a config file called `.env` and the content should be followed by the same as
+the `.env.example` file.
 
 ### Execute
 
 Once the previous step is completed, you can execute the script.
 
 ```bash
-watch_and_send
+# For linux and mac users
+./watch_and_send.sh
+# For windows users
+watch_and_send.bat
 ```
 
 ### Windows
 
-If you are using Windows, after creating the venv environment, installing the dependencies and generating a .env with the right credentials, you can generate a .exe installer with the following command on cmd or PS.
+If you are using Windows, after creating the venv environment, installing the dependencies and generating a .env with
+the right credentials, you can generate a .exe installer with the following command on cmd or PS.
 
 ```bash
-set PYINSTALLER_CONFIG_DIR=.env
+set PYINSTALLER_CONFIG_DIR=.
 pyinstaller --onefile --paths venv\Lib\site-packages src\main.py
 ```
+
+After that execute the `./dist/main.exe` that was created.
