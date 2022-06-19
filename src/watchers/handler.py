@@ -13,18 +13,18 @@ class WatcherHandler(FileSystemEventHandler):
     def on_modified(self, event):
         self.__synchronize_creation_modification_with_remote_server(event)
 
-    def on_created(self,  event):
+    def on_created(self, event):
         self.__synchronize_creation_modification_with_remote_server(event)
 
-    def on_deleted(self,  event):
+    def on_deleted(self, event):
         self.__synchronize_deletion_with_remote_server(event)
 
     def __synchronize_creation_modification_with_remote_server(self, event):
         logging.info(
             f"event type: {event.event_type} - path: {event.src_path}")
-        self.sender.persist()
+        self.sender.persist(event.src_path)
 
     def __synchronize_deletion_with_remote_server(self, event):
         logging.info(
             f"event type: {event.event_type} - path: {event.src_path}")
-        self.sender.delete_recursively()
+        self.sender.delete_recursively(event.src_path)

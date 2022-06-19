@@ -1,3 +1,6 @@
+import logging
+import os
+
 from src.config.get_smb_config import GetSmbConfig
 from src.config.get_smb_connection import GetSmbConnections
 
@@ -8,16 +11,19 @@ class SmbClient:
         self.__operations = self.__get_connection()
         self.__config = GetSmbConfig()
 
-    def persist(self) -> None:
+    def persist(self, file_path: str) -> None:
         try:
-            # self.__operations.storeFile(self.__shared_folder, "test")
-            pass
+            with open(file_path, 'r') as f:
+                file_path_to_persist = os.path.join(self.__config.smb_remote_folder_to_persist,
+                                                    os.path.basename(file_path))
+                self.__get_connection().storeFile(self.__config.smb_remote_folder_share_to_watch,
+                                                  file_path_to_persist, f)
         except Exception as ex:
-            print('Fail to persist: ', ex)
+            logging.error('Fail to persist: ', ex)
         finally:
             self.__close_connection()
 
-    def delete_recursively(self):
+    def delete_recursively(self, filename: str):
         # self.__operations.deleteFiles(self.__shared_folder, "test/*")
         pass
 
