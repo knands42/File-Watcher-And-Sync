@@ -1,3 +1,10 @@
+# Archived
+
+I'm going to start a better version of this project in golang eventually, so I'm archiving this one
+
+It's not broken, I just abandoned this project
+
+
 # FileWatcherAndSync
 
 Just a simple script to listen changes on my directory and sync it to my remote server.
